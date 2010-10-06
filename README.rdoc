@@ -5,7 +5,25 @@
 	* 请自行安装好ruby环境
 	* 安装Crack, 位于http://github.com/jnunemaker/crack
 	* 在设置 base_setting.rb 中，设定你所申请的APP_KEY及APP_SECRET
+	* 使用 include Elvuel::OpenTaobao
 	* 添加所需要使用的开放平台api到api.rb文件中（请参照已有示例，另外 params中 *字符为必需项 !字符为上传）
+
+== 示例
+	*
+	include Elvuel::OpenTaobao
+	Base::Setting.app_env = "production"
+	Base::Setting.app_type = "client"
+
+	...
+	req = TBTaobaokeItemsGet.new
+	req.fields = "nick"
+	req.keyword = "iphone"
+	req.nick = "elvuel"
+	req.area = "上海"
+	req.start_credit = "4diamond"
+	req.end_credit = "5goldencrown"
+	req.send_request
+	...
 
 == LICENSE:
 The same license as Ruby. * Currently no support, no warranty *.
